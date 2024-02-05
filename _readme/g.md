@@ -5,7 +5,7 @@
 - Au clic sur le bouton « Je n'aime pas la guerre » :
   - On veut effacer le contenu de la liste
   - On veut appeller chaque instance de nos personnages et s'assurer qu'ils ne soient plus actifs
-  - On veut minimiser chaque carte des généraux
+
 
 ## Classe Army
 
