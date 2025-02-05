@@ -2,17 +2,18 @@
    exercice grid corrige / component
    ========================================================================== */
 
-.main-grid {
+.persos {
     --ex-grid-gap: 40px;
 
     display: grid;
     gap: 30px;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     align-items: flex-start;
 }
 
-.card {
+.perso {
     border: 5px var(--color-primary) solid;
+    border-radius: 5px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -39,12 +40,15 @@
         padding: 20px;
         text-align: left;
     }
-    
+
     .content {
         display: flex;
         align-items: center;
-        position: absolute;
+        position: relative;
         visibility: hidden;
+        interpolate-size: allow-keywords;
+        transition: height 0.4s ease-in-out, visibility 0.4s;
+        height: 0;
 
         img {
             width: 100%;
@@ -62,7 +66,7 @@
         position: absolute;
         top: 50%;
         right: 30px;
-        transition: transform .2s cubic-bezier( 0.175,  0.885,  0.320,  1.275 );;
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transform: translateY(-50%);
     }
 
@@ -72,6 +76,7 @@
 
     &.is-active {
         filter: grayscale(0);
+        grid-row: span 10;
 
         .header {
             background-color: var(--color-primary);
@@ -82,8 +87,9 @@
         }
 
         .content {
-            position: relative;
+            //position: relative;
             visibility: visible;
+            height: max-content;
             z-index: 1;
             img {
                 transform: scale(1);
@@ -92,9 +98,11 @@
             }
         }
     }
-    
 }
 
+.final-selection {
+    grid-column: 1 / -1;
+}
 .options {
     grid-column: 1 / -1;
     display: flex;
